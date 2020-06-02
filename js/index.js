@@ -83,3 +83,15 @@ document.addEventListener("drop", function (event) {
     event.target.appendChild(dragged);
   }
 });
+
+// Load: change the font of every heading when it's finished loading.
+const h1 = document.querySelector("h1");
+const h2 = document.querySelectorAll("h2");
+const h4 = document.querySelectorAll("h4");
+window.addEventListener("load", function (event) {
+  h1.style.fontFamily = "Roboto";
+  for (let i = 0; i < h2.length; i++) {
+    h2[i].style.fontFamily = "Roboto";
+    h4[i].style.fontFamily = "Roboto";
+  }
+});
