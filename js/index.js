@@ -21,3 +21,18 @@ document.body.addEventListener("keydown", function (event) {
     document.body.appendChild(h1);
   }
 });
+
+// Zoom in and zoom out the header image
+const busImage = document.querySelector(".intro img");
+function zoom(event) {
+  event.preventDefault();
+  scale += event.deltaY * -0.01;
+
+  // Restrict scale
+  scale = Math.min(Math.max(0.125, scale), 4);
+
+  // Apply scale transform
+  busImage.style.transform = `scale(${scale})`;
+}
+let scale = 1;
+busImage.addEventListener("wheel", zoom);
