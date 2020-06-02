@@ -1,14 +1,13 @@
 // Your code goes here
 
-// Grab the h1 element with the logo name
+// Mouseover: when the cursor hovers over that element, it's background color will turn black and the text color white
 const logo = document.querySelector("h1");
-// When the cursor hovers over that element, it's background color will turn black and the text color white
 logo.addEventListener("mouseover", function (event) {
   logo.style.backgroundColor = "black";
   logo.style.color = "white";
 });
 
-// When hitting enter, momentarily clear the body, paint it dark blue, and add an h1 that says "where did everything go"
+// Keydown: when hitting enter, momentarily clear the body, paint it dark blue, and add an h1 that says "where did everything go"
 document.body.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     document.body.innerHTML = "";
@@ -22,7 +21,7 @@ document.body.addEventListener("keydown", function (event) {
   }
 });
 
-// Zoom in and zoom out the header image
+// Wheel: zoom in and zoom out the header image
 const busImage = document.querySelector(".intro img");
 function zoom(event) {
   event.preventDefault();
@@ -36,3 +35,51 @@ function zoom(event) {
 }
 let scale = 1;
 busImage.addEventListener("wheel", zoom);
+
+// Drag & Drop: grab any one of the content section and change the order of them.
+let dragged;
+
+/* events fired on the draggable element */
+document.addEventListener("drag", function (event) {});
+
+document.addEventListener("dragstart", function (event) {
+  /* store a reference on the dragged element */
+  dragged = event.target;
+  /* make it half transparent */
+  event.target.style.opacity = 0.5;
+});
+
+document.addEventListener("dragend", function (event) {
+  event.target.style.opacity = "";
+});
+
+/* events fired on the drop targets */
+document.addEventListener("dragover", function (event) {
+  /* prevent default to allow drop */
+  event.preventDefault();
+});
+
+document.addEventListener("dragenter", function (event) {
+  /* highlight potential drop target when the draggable element enters it */
+  if (event.target.className === "content-section") {
+    event.target.style.backgroundColor = "purple";
+  }
+});
+
+document.addEventListener("dragleave", function (event) {
+  /* reset background of potential drop target when the draggable element leaves it */
+  if (event.target.className === "content-section") {
+    event.target.style.backgroundColor = "";
+  }
+});
+
+document.addEventListener("drop", function (event) {
+  /*prevent default action (open as link for some elements) */
+  event.preventDefault();
+  /* move dragged element to the selected drop target */
+  if (event.target.className === "content-section") {
+    event.target.style.backgroundColor = "";
+    dragged.parentNode.removeChild(dragged);
+    event.target.appendChild(dragged);
+  }
+});
