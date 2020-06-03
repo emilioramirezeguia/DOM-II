@@ -138,7 +138,18 @@ h2Cut.addEventListener("cut", function (event) {
 
 // dblclick: click on an element twice and do something
 const removeImg = document.querySelector(".inverse-content .img-content");
-console.log(removeImg);
 document.addEventListener("dblclick", function (event) {
   removeImg.remove();
+});
+
+// Stop propogation
+const destinationDiv = document.querySelector(".destination");
+destinationDiv.addEventListener("click", function (event) {
+  destinationDiv.style.backgroundColor = "purple";
+});
+
+const destinationh4 = document.querySelector(".destination h4");
+destinationh4.addEventListener("click", function (event) {
+  destinationh4.style.backgroundColor = "white";
+  event.stopPropagation();
 });
