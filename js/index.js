@@ -92,6 +92,20 @@ window.addEventListener("load", function (event) {
   h1.style.fontFamily = "Roboto";
   for (let i = 0; i < h2.length; i++) {
     h2[i].style.fontFamily = "Roboto";
+  }
+  for (let i = 0; i < h4.length; i++) {
     h4[i].style.fontFamily = "Roboto";
   }
+});
+
+// Focus: change the background color again when clicking the button.
+const middleParagraph = document.querySelector(".destination:nth-of-type(2) p");
+console.log(middleParagraph);
+middleParagraph.addEventListener("focus", function (event) {
+  event.target.style.backgroundColor = "red";
+  event.target.style.color = "white";
+});
+middleParagraph.addEventListener("blur", function (event) {
+  event.target.style.backgroundColor = "";
+  event.target.style.color = "";
 });
