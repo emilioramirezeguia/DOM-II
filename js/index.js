@@ -126,7 +126,19 @@ window.addEventListener("scroll", function (event) {
 });
 
 // Cut & Paste: cut and paste from header
-const h2Cut = document.querySelector(".content-destion h2");
+const h2Cut = document.querySelector(".content-destination h2");
 h2Cut.addEventListener("cut", function (event) {
+  event.clipboardData.setData(
+    "text/plain",
+    event.target.toString().toUpperCase()
+  );
+  event.target.deleteFromDocument();
   event.preventDefault();
+});
+
+// dblclick: click on an element twice and do something
+const removeImg = document.querySelector(".inverse-content .img-content");
+console.log(removeImg);
+document.addEventListener("dblclick", function (event) {
+  removeImg.remove();
 });
