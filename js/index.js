@@ -100,7 +100,6 @@ window.addEventListener("load", function (event) {
 
 // Focus: change the background color again when clicking the button.
 const middleParagraph = document.querySelector(".destination:nth-of-type(2) p");
-console.log(middleParagraph);
 middleParagraph.addEventListener("focus", function (event) {
   event.target.style.backgroundColor = "red";
   event.target.style.color = "white";
@@ -108,4 +107,10 @@ middleParagraph.addEventListener("focus", function (event) {
 middleParagraph.addEventListener("blur", function (event) {
   event.target.style.backgroundColor = "";
   event.target.style.color = "";
+});
+
+// Resize: display the height and width of the window when you manually resize it.
+window.addEventListener("resize", function (event) {
+  console.log("Height: ", window.innerHeight);
+  console.log("Width: ", window.innerWidth);
 });
