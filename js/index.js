@@ -124,3 +124,9 @@ window.addEventListener("scroll", function (event) {
     document.body.style.backgroundColor = "green";
   }
 });
+
+// Cut & Paste: cut and paste from header
+const h2Cut = document.querySelector(".content-destion h2");
+h2Cut.addEventListener("cut", function (event) {
+  event.preventDefault();
+});
