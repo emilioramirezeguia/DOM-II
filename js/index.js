@@ -114,3 +114,13 @@ window.addEventListener("resize", function (event) {
   console.log("Height: ", window.innerHeight);
   console.log("Width: ", window.innerWidth);
 });
+
+// Scroll: change different background colors at differnt scroll positions
+window.addEventListener("scroll", function (event) {
+  if (
+    document.body.scrollTop > 350 ||
+    document.documentElement.scrollTop > 350
+  ) {
+    document.body.style.backgroundColor = "green";
+  }
+});
